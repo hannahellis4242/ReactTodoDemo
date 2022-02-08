@@ -1,0 +1,14 @@
+.add {
+  background-color: grey;
+  width: 60%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.input {
+  margin: 5px;
+}
+
+.submit {
+  float: right;
+}
