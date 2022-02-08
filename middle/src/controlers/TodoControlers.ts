@@ -17,12 +17,12 @@ export const addTodo: RequestHandler = (req, res) => {
   res.status(200).send();
 };
 
-interface RemoveRequestBody {
-  id: string;
-}
-
 export const removeTodo: RequestHandler = (req, res) => {
-  const body: RemoveRequestBody = req.body;
-  data = data.filter(({ id }) => id !== body.id);
-  res.status(200).send();
+  if (req.query.id) {
+    const idToRemove = req.query.id.toString();
+    data = data.filter(({ id }) => id !== idToRemove);
+    res.status(200).send();
+  } else {
+    res.status(500).json({ error: true, msg: "add an id query to request" });
+  }
 };

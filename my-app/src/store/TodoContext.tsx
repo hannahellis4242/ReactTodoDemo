@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 import TodoModel from "../Models/TodoModel";
 
 interface TodoModelContext {
@@ -16,12 +17,24 @@ export const TodoContext = createContext<TodoModelContext>({
 const TodoContextProvider: React.FC = (props) => {
   const [items, setItems] = useState<TodoModel[]>([]);
 
+  const getItems = () => {
+    axios.get("http://localhost:5000/todo").then((results) => {
+      setItems((prev) => results.data);
+    });
+  };
+
+  useEffect(getItems, []);
+
   const addItemHandler = (text: string) => {
-    setItems((prev) => prev.concat(new TodoModel(text)));
+    axios
+      .post("http://localhost:5000/todo", new TodoModel(text))
+      .then(getItems);
   };
 
   const removeItemHandler = (id: string) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    axios
+      .delete("http://localhost:5000/todo", { params: { id } })
+      .then(getItems);
   };
 
   const context = {
