@@ -1,0 +1,23 @@
+{
+  "name": "reacttododemo",
+  "version": "1.0.0",
+  "description": "Little demo to do list app with React and Typescript. Partly for learning and partly for demonstration purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hannahellis4242/ReactTodoDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hannahellis4242/ReactTodoDemo/issues"
+  },
+  "homepage": "https://github.com/hannahellis4242/ReactTodoDemo#readme",
+  "devDependencies": {
+    "create-react-app": "^5.0.0"
+  }
+}
